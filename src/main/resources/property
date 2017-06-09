@@ -1,9 +1,0 @@
-projectpath=d:\\work\\eclipse-workspace\\evo-main-2014
-tempDirPath=d:\\work\\Vdata\\sql-updater\\temp
-dbHost=localhost
-dbPort=3306
-dbName=evo_etalon2
-dbUser=evo_etalonwriter
-dbPassword=
-withUpdate=true
-mysqlPath=C:\\Program Files\\MySQL\\MySQL Server 5.6\\bin

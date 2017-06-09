@@ -45,7 +45,7 @@ public class SqlUpdater {
         return file.getAbsolutePath().replace(this.dirName, "");
     }
 
-    public void execute() throws Exception {
+    public void execute() {
         try {
             startExecution();
         } catch (Exception e) {

@@ -1,5 +1,5 @@
 group 'de.vdata'
-version '1.0-SNAPSHOT'
+version "${projectBuildVersion}"
 
 apply plugin: 'java'
 
@@ -16,5 +16,14 @@ dependencies {
 }
 
 task wrapper(type: Wrapper) {
-    gradleVersion = '3.5'
+    gradleVersion = "${gradleVersion}"
+}
+
+jar {
+    manifest {
+        attributes 'Main-Class': 'de.vdata.sqlupdater.App'
+    }
+    from {
+        configurations.compile.collect { it.isDirectory() ? it : zipTree(it) }
+    }
 }
