@@ -24,7 +24,7 @@ public class FileUtil {
      * @return Path to folder without slash at the end.
      */
     public static String getPathToFolder(String path) {
-        String fixedPath = path.replaceAll("/+", "/").replaceAll("\\\\+", "\\\\").trim();
+        String fixedPath = path.replaceAll("/+", "/").replaceAll("\\+", "\\").trim();
 
         int slashIdx = fixedPath.lastIndexOf("/");
         if (slashIdx == -1) {

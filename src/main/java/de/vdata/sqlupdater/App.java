@@ -2,7 +2,7 @@ package de.vdata.sqlupdater;
 
 import de.vdata.sqlupdater.task.SqlUpdater;
 import de.vdata.sqlupdater.util.FileUtil;
-import de.vdata.sqlupdater.util.UpdaterFactory;
+import de.vdata.sqlupdater.util.SqlUpdaterFactory;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -37,7 +37,7 @@ public class App {
 
         Properties properties = loadProperties(propertiesFile);
 
-        SqlUpdater sqlUpdater = UpdaterFactory.create(pathToWorkingFolder, properties);
+        SqlUpdater sqlUpdater = SqlUpdaterFactory.create(pathToWorkingFolder, properties);
 
         sqlUpdater.execute();
     }

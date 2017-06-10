@@ -8,7 +8,7 @@ import java.util.Properties;
 /**
  * @author isegodin
  */
-public class UpdaterFactory {
+public class SqlUpdaterFactory {
 
     private static final String DEFAULT_TEMP_FOLDER_NAME = "temp";
 

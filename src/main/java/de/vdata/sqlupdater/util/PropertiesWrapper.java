@@ -10,7 +10,7 @@ import java.util.regex.Pattern;
  */
 public class PropertiesWrapper {
 
-    private static final Pattern VALID_STRING_PATTERN = Pattern.compile("[^\\S\\s]+");
+    private static final Pattern VALID_STRING_PATTERN = Pattern.compile("\\S+");
 
     private final Properties properties;
 
@@ -35,7 +35,7 @@ public class PropertiesWrapper {
         if (value != null) {
             value = value.trim();
         }
-        if (value == null || !VALID_STRING_PATTERN.matcher(value).matches()) {
+        if (value == null || !VALID_STRING_PATTERN.matcher(value).find()) {
             if (strict) {
                 throw new RuntimeException("Please, specify property: " + key);
             }
