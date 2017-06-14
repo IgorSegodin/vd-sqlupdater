@@ -1,15 +1,15 @@
 # путь к проекту
-# projectpath=d:\work\eclipse-workspace\evo-main-2014
+# projectpath=d:\\work\\eclipse-workspace\\evo-main-2014
 projectpath=
 
 # optional
 # путь к временной папке (она используется в ходе выполнения скриптов), которая стирается (!) после выполнения скрипта
-# tempDirPath=d:\work\Vdata\sql-updater\temp
+# tempDirPath=d:\\work\\Vdata\sql-updater\\temp
 tempDirPath=
 
 # optional
 # этот параметр необходим в том случае, если MYSQL не прописан в переменных среды. В нем необходимо указать путь в папке bin MYSQL
-# mysqlPath=C:\Program Files\MySQL\MySQL Server 5.6\bin
+# mysqlPath=C:\\Program Files\\MySQL\\MySQL Server 5.6\\bin
 mysqlPath=
 
 # ВНИМАНИЕ: параметр "withUpdate" в property-файле при первом запуске нужно установить в false. После первого запуска нужно будет установить его в true и больше не менять.

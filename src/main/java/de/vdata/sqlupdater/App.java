@@ -9,6 +9,7 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.net.URISyntaxException;
 import java.net.URL;
 import java.nio.file.Paths;
 import java.util.Properties;
@@ -23,8 +24,7 @@ public class App {
 
 
     public static void main(String[] args) {
-        URL jarLocation = App.class.getProtectionDomain().getCodeSource().getLocation();
-        String pathToWorkingFolder = FileUtil.getPathToFolder(jarLocation.getFile());
+        String pathToWorkingFolder = getPathToWorkingFolder();
 
         File propertiesFile = Paths.get(pathToWorkingFolder, PROPERTY_FILE_NAME).toFile();
 
@@ -40,6 +40,15 @@ public class App {
         SqlUpdater sqlUpdater = SqlUpdaterFactory.create(pathToWorkingFolder, properties);
 
         sqlUpdater.execute();
+    }
+
+    private static String getPathToWorkingFolder() {
+        try {
+            URL jarLocation = App.class.getProtectionDomain().getCodeSource().getLocation();
+            return FileUtil.getPathToFolder(Paths.get(jarLocation.toURI()).toString());
+        } catch (URISyntaxException e) {
+            throw new RuntimeException("Can not resolve working folder location.", e);
+        }
     }
 
     private static void initializePropertyFileFlow(File propertiesFile) {

@@ -60,8 +60,17 @@ public class SqlUpdater {
             connection = resolveJDBC();
             List<File> newScripts = getNotExecutedScripts(connection);
             newScripts.sort(fileComparator);
-            File tempDir = new File(this.tempDirPath + getFileSeparator() + "temp");
-            tempDir.mkdir();
+
+            File specifiedTempDir = new File(this.tempDirPath);
+            if (!specifiedTempDir.exists() && !specifiedTempDir.mkdir()) {
+                throw new RuntimeException("Can not create temp directory: " + specifiedTempDir.getAbsolutePath());
+            }
+
+            File tempDir = Paths.get(specifiedTempDir.getAbsolutePath(), "temp").toFile();
+            if (!tempDir.exists() && !tempDir.mkdir()) {
+                throw new RuntimeException("Can not create temp directory: " + tempDir.getAbsolutePath());
+            }
+
             copyFiles(newScripts, tempDir);
             List<SqlLogEntity> logsEntity = new ArrayList<>();
             for (File file : newScripts) {

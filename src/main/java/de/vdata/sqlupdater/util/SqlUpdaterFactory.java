@@ -28,7 +28,7 @@ public class SqlUpdaterFactory {
         sqlUpdater.setDbPort(propertiesWrapper.get("dbPort", "3306"));
         sqlUpdater.setDbName(propertiesWrapper.getStrict("dbName"));
         sqlUpdater.setDbUser(propertiesWrapper.getStrict("dbUser"));
-        sqlUpdater.setDbPassword(propertiesWrapper.get("dbPassword"));
+        sqlUpdater.setDbPassword(propertiesWrapper.get("dbPassword", ""));
         return sqlUpdater;
     }
 }
